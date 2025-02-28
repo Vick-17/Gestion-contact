@@ -4,6 +4,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.projectspring.api.Dto.ContactsDto;
@@ -25,12 +26,12 @@ public class ContactsController extends GenericController<ContactsDto, Integer, 
         return service.createContact(contact, idUser);
     }
 
-    @DeleteMapping("/{contactId}")
-    public void deleteContactByUserId(Integer contactId, Integer userId) {
+    @DeleteMapping("/supr")
+    public void deleteContactByUserId(@RequestParam Integer contactId, Integer userId) {
         service.deleteContactByUserId(contactId, userId);
     }
 
-    @PutMapping("/{contactId}")
+    @PutMapping("/modif/{contactId}")
     public ContactsDto updateContact(@RequestBody ContactsDto contact, Integer contactId, Integer userId) {
         return service.updateContactByUserId(contactId, userId, contact);
     }

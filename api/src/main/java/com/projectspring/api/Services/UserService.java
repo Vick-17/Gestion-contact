@@ -96,7 +96,7 @@ public class UserService extends GenericServiceImpl<UserEntities, Integer, UserD
         BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
         String passwordEncode = bCryptPasswordEncoder.encode(users.getPassword());
         users.setPassword(passwordEncode);
-        RoleEntities userRole = roleRepositories.findByName("ROLE_ADMIN");
+        RoleEntities userRole = roleRepositories.findByName("ROLE_USER");
         if (userRole == null) {
             throw new RuntimeException("Role introuvable");
         }

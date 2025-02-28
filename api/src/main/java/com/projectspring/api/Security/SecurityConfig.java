@@ -23,9 +23,11 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 public class SecurityConfig {
 
     private final String[] authorized = new String[] {
-            "/users",
+            "/users/register",
             "/contacts/create",
-            "/contacts/{id}"
+            "/contacts/{id}",
+            "/contacts/supr",
+        "/swagger-ui/**", "/v3/api-docs/**"
     };
 
     private final String[] authorized_for_admin = new String[] {
